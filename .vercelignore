@@ -2,6 +2,11 @@ node_modules/
 frontend/node_modules/
 .git/
 .vercel/
+.vercel/cache/
+.vercel/README.txt
+.vercel/repo.json
+!.vercel/output/
+!.vercel/output/**
 *.log
 *.bak
 *.db
