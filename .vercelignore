@@ -1,12 +1,6 @@
 node_modules/
 frontend/node_modules/
 .git/
-.vercel/
-.vercel/cache/
-.vercel/README.txt
-.vercel/repo.json
-!.vercel/output/
-!.vercel/output/**
 *.log
 *.bak
 *.db
@@ -40,3 +34,6 @@ dump-*.cjs
 clean-*.cjs
 fake-*.cjs
 test-bundle.ps1
+
+# IMPORTANTE: deixar .vercel/output/ ser upado pro Vercel Build Output API v3
+# NAO ignorar .vercel/ inteiro (Vercel precisa ler o output pra deploy)
