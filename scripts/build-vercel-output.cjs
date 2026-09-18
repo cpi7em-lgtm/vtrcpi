@@ -41,7 +41,6 @@ require("fs").writeFileSync(configPath, JSON.stringify({
   },
   routes: [
     { handle: "filesystem" },
-    { src: "^/assets/(.*)$", headers: { "cache-control": "public, max-age=31536000, immutable" }, continue: true },
     { src: "^/(.*)$", headers: { "X-Content-Type-Options": "nosniff", "X-Frame-Options": "DENY", "Referrer-Policy": "strict-origin-when-cross-origin" }, continue: true },
     { src: "^/(.*)$", dest: "/index.html", status: 200 }
   ]
