@@ -36,12 +36,14 @@ copyRecursive(distDir, join(vercelOut, "static"));
 const configPath = join(vercelOut, "config.json");
 require("fs").writeFileSync(configPath, JSON.stringify({
   version: 3,
+  cleanUrls: false,
   functions: {
     "api/**/*.js": { maxDuration: 30 }
   },
   routes: [
-    { handle: "filesystem" },
+    { src: "^/api/(.+)$", dest: "/api/$1" },
     { src: "^/(.*)$", headers: { "X-Content-Type-Options": "nosniff", "X-Frame-Options": "DENY", "Referrer-Policy": "strict-origin-when-cross-origin" }, continue: true },
+    { handle: "filesystem" },
     { src: "^/(.*)$", dest: "/index.html", status: 200 }
   ]
 }, null, 2));
